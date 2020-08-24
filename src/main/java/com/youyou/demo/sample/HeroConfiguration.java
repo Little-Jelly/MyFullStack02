@@ -12,14 +12,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HeroConfiguration {
 
-//    @Bean
+    @Bean
 //    @Conditional(DianaCondition.class)
-    @ConditionalOnProperty(value="hero.condition", havingValue="diana", matchIfMissing = true)
+//    @ConditionalOnProperty(value="hero.condition", havingValue="diana", matchIfMissing = true)
     public ISkill Diana(){
         return new Diana("Diana");
     }
 
-    @Bean
+//    @Bean
 //    @Conditional(IrelliaCondition.class)
 //    @ConditionalOnProperty(value="hero.condition", havingValue="irellia")
     public ISkill Irellia(){

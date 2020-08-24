@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @ResponseBody
-@RequestMapping("/v1/banner")
+@RequestMapping("/banner")
 public class BannerController {
     @Autowired
     private ISkill iSkill;
@@ -26,9 +26,9 @@ public class BannerController {
     @RequestMapping(value = "/test", method = {RequestMethod.GET, RequestMethod.POST})
     public String test() {
 //        throw new NotFoundException(383838);
-        throw new ForbiddenException(10001);
-//        iSkill.r();
-//        iConnect.connect();
-//        return  "Hello, 七月";
+//        throw new ForbiddenException(10001);
+        iSkill.r();
+        iConnect.connect();
+        return  "Hello, 七月";
     }
 }

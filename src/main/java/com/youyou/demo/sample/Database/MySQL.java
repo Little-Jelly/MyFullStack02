@@ -12,6 +12,7 @@ public class MySQL implements IConnect {
     public MySQL(String ip, Integer port) {
         this.ip = ip;
         this.port = port;
+        System.out.println("初始化：ip:" + ip + ",port:"+ port);
     }
 
     public void setIp(String ip) {
@@ -28,6 +29,6 @@ public class MySQL implements IConnect {
 
     @Override
     public void connect() {
-        System.out.println(this.ip+":"+this.port);
+        System.out.println("进行连接："+this.ip+":"+this.port);
     }
 }
