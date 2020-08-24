@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @ResponseBody
@@ -23,12 +21,12 @@ public class BannerController {
 
     @Autowired
     private IConnect iConnect;
-    @RequestMapping(value = "/test", method = {RequestMethod.GET, RequestMethod.POST})
-    public String test() {
+    @RequestMapping(value = "/test/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    public String test(@PathVariable Integer id, @RequestParam String name) {
 //        throw new NotFoundException(383838);
-        throw new ForbiddenException(10001);
-//        iSkill.r();
-//        iConnect.connect();
-//        return  "Hello, 七月";
+//        throw new ForbiddenException(10001);
+        iSkill.r();
+        iConnect.connect();
+        return  "Hello, 七月";
     }
 }
