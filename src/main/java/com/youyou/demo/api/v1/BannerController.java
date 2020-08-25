@@ -25,13 +25,18 @@ public class BannerController {
     @Autowired
     private IConnect iConnect;
     @RequestMapping(value = "/test/{id}", method = {RequestMethod.GET, RequestMethod.POST})
-    public String test(@PathVariable Integer id,
+    public PersonDTO test(@PathVariable Integer id,
                        @RequestParam String name,
                        @RequestBody PersonDTO person) {
+        PersonDTO personDTO = PersonDTO.builder()
+                .name("壮壮")
+                .age(77)
+                .build();
+//          PersonDTO personDTO = new PersonDTO();
+//          personDTO.setAge(11);
+//          personDTO.setName("悠悠");
 //        throw new NotFoundException(383838);
 //        throw new ForbiddenException(10001);
-        iSkill.r();
-        iConnect.connect();
-        return  "Hello, 七月";
+          return  personDTO;
     }
 }
