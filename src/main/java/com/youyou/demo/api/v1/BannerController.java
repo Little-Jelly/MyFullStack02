@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @Controller
 @ResponseBody
 @RequestMapping("/banner")
@@ -22,7 +24,9 @@ public class BannerController {
     @Autowired
     private IConnect iConnect;
     @RequestMapping(value = "/test/{id}", method = {RequestMethod.GET, RequestMethod.POST})
-    public String test(@PathVariable Integer id, @RequestParam String name) {
+    public String test(@PathVariable Integer id,
+                       @RequestParam String name,
+                       @RequestBody Map<String, Object> person) {
 //        throw new NotFoundException(383838);
 //        throw new ForbiddenException(10001);
         iSkill.r();
