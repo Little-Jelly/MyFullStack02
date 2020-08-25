@@ -1,5 +1,6 @@
 package com.youyou.demo.api.v1;
 
+import com.youyou.demo.dto.PersonDTO;
 import com.youyou.demo.exception.http.ForbiddenException;
 import com.youyou.demo.exception.http.HttpException;
 import com.youyou.demo.exception.http.NotFoundException;
@@ -26,7 +27,7 @@ public class BannerController {
     @RequestMapping(value = "/test/{id}", method = {RequestMethod.GET, RequestMethod.POST})
     public String test(@PathVariable Integer id,
                        @RequestParam String name,
-                       @RequestBody Map<String, Object> person) {
+                       @RequestBody PersonDTO person) {
 //        throw new NotFoundException(383838);
 //        throw new ForbiddenException(10001);
         iSkill.r();
