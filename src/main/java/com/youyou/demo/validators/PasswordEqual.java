@@ -12,7 +12,7 @@ public @interface PasswordEqual {
     int min() default  2;
     int max() default  10;
 
-    String message() default "passwords are not equals";
+    String message() default "两次输入的密码不同";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 

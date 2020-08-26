@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @Builder
 @Getter
 @Setter
-@PasswordEqual(min = 1, max = 100)
+@PasswordEqual(min = 1, max = 11)
 //@PasswordEqual
 public class PersonDTO {
 

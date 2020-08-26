@@ -7,6 +7,7 @@ import com.youyou.demo.exception.http.NotFoundException;
 import com.youyou.demo.sample.IConnect;
 import com.youyou.demo.sample.ISkill;
 import com.youyou.demo.sample.hero.Diana;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -30,7 +31,7 @@ public class BannerController {
 
     @RequestMapping(value = "/test/{id}", method = {RequestMethod.GET, RequestMethod.POST})
     public PersonDTO test(@PathVariable @Range(min = 0, max = 10, message = "值必须要在0-10之间") Integer id,
-                       @RequestParam String name,
+                       @RequestParam @Length(min = 15) String name,
                        @RequestBody @Validated PersonDTO person) {
         PersonDTO personDTO = PersonDTO.builder()
                 .name("壮壮")
