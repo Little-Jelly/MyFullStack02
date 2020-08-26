@@ -4,6 +4,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.Valid;
 
 
 @Builder
@@ -11,22 +14,10 @@ import lombok.Setter;
 @Setter
 public class PersonDTO {
 
+    @Length(min = 2, max = 10, message = "xxxxxxxxx")
     private String name;
     private Integer age;
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public Integer getAge() {
-//        return age;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public void setAge(Integer age) {
-//        this.age = age;
-//    }
+    @Valid
+    private SchoolDTO schoolDTO;
 }

@@ -31,7 +31,7 @@ public class BannerController {
     @RequestMapping(value = "/test/{id}", method = {RequestMethod.GET, RequestMethod.POST})
     public PersonDTO test(@PathVariable @Range(min = 0, max = 10, message = "值必须要在0-10之间") Integer id,
                        @RequestParam String name,
-                       @RequestBody PersonDTO person) {
+                       @RequestBody @Validated PersonDTO person) {
         PersonDTO personDTO = PersonDTO.builder()
                 .name("壮壮")
                 .age(77)
