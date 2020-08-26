@@ -11,21 +11,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import javax.validation.constraints.Max;
 
-@Controller
-@ResponseBody
+@RestController
 @RequestMapping("/banner")
+@Validated
 public class BannerController {
     @Autowired
     private ISkill iSkill;
 
     @Autowired
     private IConnect iConnect;
+
     @RequestMapping(value = "/test/{id}", method = {RequestMethod.GET, RequestMethod.POST})
-    public PersonDTO test(@PathVariable Integer id,
+    public PersonDTO test(@PathVariable @Max(value = 10, message = "不能超过10哦") Integer id,
                        @RequestParam String name,
                        @RequestBody PersonDTO person) {
         PersonDTO personDTO = PersonDTO.builder()

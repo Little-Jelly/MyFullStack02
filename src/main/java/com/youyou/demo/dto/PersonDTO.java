@@ -8,6 +8,7 @@ import lombok.Setter;
 
 @Builder
 @Getter
+@Setter
 public class PersonDTO {
     private String name;
     private Integer age;
