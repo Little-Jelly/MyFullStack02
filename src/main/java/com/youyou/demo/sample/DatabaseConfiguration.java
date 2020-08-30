@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DatabaseConfiguration {
 
-    @Value("${mysql.ip}")
+//    @Value("${mysql.ip}")
     private String ip;
 
-    @Value("${mysql.port}")
+//    @Value("${mysql.port}")
     private Integer port;
 
     @Bean
