@@ -10,6 +10,7 @@ import java.util.List;
 @Table(name = "banner")
 public class Banner {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 16)
     private String name;
@@ -20,5 +21,6 @@ public class Banner {
     private String title;
 
     @OneToMany
+    @JoinColumn(name = "BannerId")
     protected List<BannerItem> bannerItems;
 }
