@@ -4,6 +4,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
+
+
 
 demo:
   api-package: com.youyou.demo.api

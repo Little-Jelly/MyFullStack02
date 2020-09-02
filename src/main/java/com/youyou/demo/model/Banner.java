@@ -20,7 +20,7 @@ public class Banner {
     private String img;
     private String title;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "BannerId")
     protected List<BannerItem> bannerItems;
 }
