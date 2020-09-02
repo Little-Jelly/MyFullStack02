@@ -1,9 +1,6 @@
 package com.youyou.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class BannerItem {
@@ -16,5 +13,9 @@ public class BannerItem {
     private String name;
 
     private long BannerId;
+
+    @ManyToOne
+    @JoinColumn(insertable = false, updatable = false,name = "BannerId")
+    private Banner banner;
 
 }

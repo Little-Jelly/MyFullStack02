@@ -21,6 +21,6 @@ public class Banner {
     private String title;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "BannerId")
+//    @JoinColumn(name = "BannerId")
     protected List<BannerItem> bannerItems;
 }
