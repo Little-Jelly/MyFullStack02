@@ -14,6 +14,7 @@ public class Theme {
 
     @ManyToMany
     @JoinTable(name = "theme_spu", joinColumns = @JoinColumn(name = "theme"), inverseJoinColumns = @JoinColumn(name = "spu"))
+    @org.hibernate.annotations.ForeignKey(name="null")
     private List<Spu> spuList;
 
 }

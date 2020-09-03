@@ -1,9 +1,7 @@
 package com.youyou.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Spu {
@@ -13,5 +11,7 @@ public class Spu {
     private String title;
     private String name;
 
+    @ManyToMany(mappedBy = "spuList")
+    private List<Theme> themeList;
 
 }
