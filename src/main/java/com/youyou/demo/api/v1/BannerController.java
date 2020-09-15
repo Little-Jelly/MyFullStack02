@@ -1,5 +1,6 @@
 package com.youyou.demo.api.v1;
 
+import com.youyou.demo.exception.http.NotFoundException;
 import com.youyou.demo.model.Banner;
 import com.youyou.demo.sample.IConnect;
 import com.youyou.demo.sample.ISkill;
@@ -29,6 +30,9 @@ public class BannerController {
     public Banner getByName(@PathVariable String name){
         System.out.println("您发出了一个GET请求");
         Banner banner = bannerService.getName(name);
+        if(banner == null){
+            throw new NotFoundException(30005);
+        }
         return banner;
     }
 }
