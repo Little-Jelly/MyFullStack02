@@ -25,7 +25,7 @@ public class BannerController {
     @Autowired
     private BannerService bannerService;
 
-    @RequestMapping(value = "/getByName/{name}", method = {RequestMethod.GET})
+    @RequestMapping(value = "/name/{name}", method = {RequestMethod.GET})
     public Banner getByName(@PathVariable String name){
         System.out.println("您发出了一个GET请求");
         Banner banner = bannerService.getName(name);
