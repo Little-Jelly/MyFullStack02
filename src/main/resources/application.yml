@@ -5,8 +5,10 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
-
-
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
 
 demo:
   api-package: com.youyou.demo.api
