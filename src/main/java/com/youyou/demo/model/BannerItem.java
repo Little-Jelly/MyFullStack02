@@ -11,15 +11,12 @@ import java.util.Objects;
 @Table(name = "banner_item", schema = "sleeve", catalog = "")
 @Getter
 @Setter
-public class BannerItem {
+public class BannerItem extends BaseEntity{
     @Id
     private int id;
     private String img;
     private String keyword;
     private short type;
-    private Timestamp createTime;
-    private Timestamp updateTime;
-    private Timestamp deleteTime;
     private int bannerId;
     private String name;
 

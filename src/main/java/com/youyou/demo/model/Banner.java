@@ -12,14 +12,11 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-public class Banner {
+public class Banner extends BaseEntity{
     @Id
     private Long id;
     private String name;
     private String description;
-    private Date createTime;
-    private Date updateTime;
-    private Date deleteTime;
     private String title;
     private String img;
 
