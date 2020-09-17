@@ -17,6 +17,6 @@ public class SpuService {
     }
 
     public List<Spu> getLaestPagingSpu(){
-        return null;
+        return this.spuRepository.findAll();
     }
 }

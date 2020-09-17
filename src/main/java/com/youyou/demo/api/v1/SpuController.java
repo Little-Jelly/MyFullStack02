@@ -1,5 +1,7 @@
 package com.youyou.demo.api.v1;
 
+import com.github.dozermapper.core.DozerBeanMapperBuilder;
+import com.github.dozermapper.core.Mapper;
 import com.youyou.demo.exception.http.NotFoundException;
 import com.youyou.demo.model.Banner;
 import com.youyou.demo.model.Spu;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.Positive;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -43,7 +46,14 @@ public class SpuController {
     }
 
     @GetMapping("/latest")
-    public List<Spu> getLatestSpuList(){
-        return this.spuService.getLaestPagingSpu();
+    public List<SpuSimplifyVO> getLatestSpuList(){
+        Mapper mapper = DozerBeanMapperBuilder.buildDefault();
+        List<Spu> spuList = this.spuService.getLaestPagingSpu();
+        List<SpuSimplifyVO> vos = new ArrayList<>();
+        spuList.forEach(s->{
+            SpuSimplifyVO vo = mapper.map(s, SpuSimplifyVO.class);
+            vos.add(vo);
+        });
+        return vos;
     }
 }
