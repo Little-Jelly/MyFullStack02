@@ -3,8 +3,8 @@ package com.youyou.demo.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,5 +27,17 @@ public class Spu extends BaseEntity{
     private Long isTest;
 //    private String spuThemeImg;
     private String forThemeImg;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="spuId")
+    private List<Sku> skuList;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="spuId")
+    private List<SpuImg> spuImgList;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="spuId")
+    private List<SpuDetailImg> spuDetailImgList;
 
 }
