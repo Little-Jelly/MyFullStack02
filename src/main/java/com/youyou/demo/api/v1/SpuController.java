@@ -5,6 +5,8 @@ import com.youyou.demo.model.Banner;
 import com.youyou.demo.model.Spu;
 import com.youyou.demo.service.BannerService;
 import com.youyou.demo.service.SpuService;
+import com.youyou.demo.vo.SpuSimplifyVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,14 @@ public class SpuController {
             throw new NotFoundException(30003);
         }
         return spu;
+    }
+
+    @GetMapping("/id/{id}/simplify")
+    public SpuSimplifyVO getSimplifySpu(@PathVariable @Positive Long id){
+        Spu spu = this.spuService.getSpu(id);
+        SpuSimplifyVO vo = new SpuSimplifyVO();
+        BeanUtils.copyProperties(spu, vo);
+        return vo;
     }
 
     @GetMapping("/latest")
