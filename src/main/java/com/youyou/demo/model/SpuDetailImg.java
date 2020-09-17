@@ -13,12 +13,8 @@ import java.util.Objects;
 @Getter
 public class SpuDetailImg extends BaseEntity{
     @Id
-    private int id;
+    private Long id;
     private String img;
-    private Integer spuId;
-    private int index;
-    private Timestamp createTime;
-    private Timestamp updateTime;
-    private Timestamp deleteTime;
-
+    private Long spuId;
+    private Long index;
 }
