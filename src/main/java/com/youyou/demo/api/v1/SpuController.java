@@ -53,6 +53,5 @@ public class SpuController {
         PageCounter pageCounter = CommonUtil.convertToPageParameter(start, count);
         Page<Spu> page = this.spuService.getLaestPagingSpu(pageCounter.getPage(), pageCounter.getCount());
         return new PagingDozer<Spu, SpuSimplifyVO>(page, SpuSimplifyVO.class);
-
     }
 }
