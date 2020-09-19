@@ -60,7 +60,8 @@ public class SpuController {
                                                            @RequestParam(name = "is_root") Boolean isRoot,
                                                            @RequestParam(name = "start", defaultValue = "0") Integer start,
                                                            @RequestParam(name = "count", defaultValue= "10") Integer count){
-        
-        return null;
+        PageCounter pageCounter = CommonUtil.convertToPageParameter(start, count);
+        Page<Spu> page = this.spuService.getLaestPagingSpu(pageCounter.getPage(), pageCounter.getCount());
+        return new PagingDozer<Spu, SpuSimplifyVO>(page, SpuSimplifyVO.class);
     }
 }
